@@ -109,7 +109,7 @@ a:hover{opacity:.6;transition:opacity .25s}
 
 /* BOK (bilde + tekstside) */
 /* bilde og tekst = to like halvdeler av flaten til høyre for fanene, så skjøten står i samme linje i alle oppslag (18.11) */
-.book{display:grid;grid-template-columns:1fr 1fr;padding-left:var(--tabs)}
+.book{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);padding-left:var(--tabs)} /* minmax(0,…): bred tekst (smaker, prisliste) skal ikke skyve skjøten */
 .book--blush{background:var(--blush)}
 .book__photo{height:100%;min-height:100vh;position:relative}
 .book__photo img{position:absolute;inset:0}
@@ -382,3 +382,7 @@ a:hover{opacity:.6;transition:opacity .25s}
   .flav{grid-template-columns:1fr;grid-template-rows:none;grid-auto-flow:row;row-gap:14px}
   .flav__more{grid-template-columns:1fr;row-gap:20px}
 }
+/* smale halvdeler (ca. 900–1100 px): prislisten får krympe i stedet for å stikke ut (18.11) */
+.cols>*{min-width:0}
+.price li{grid-template-columns:1.6em 4.4em minmax(0,1fr) auto}
+.price li small{min-width:0}
