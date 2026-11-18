@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Hero – warianty</title>
+<link rel="stylesheet" href="https://use.typekit.net/xsd8rrt.css">
+<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* Porównanie wariantów hero – wszystkie z dużym napisem (kierunek D wybrany przez Joannę). 18.11, wewnętrzne */
+.hv{position:relative;height:100vh;min-height:640px;overflow:clip}
+.hv .mast{position:absolute}
+.tag{position:absolute;right:16px;top:96px;z-index:30;background:var(--ink);color:#fff;font:500 12px/1 var(--sans);letter-spacing:.08em;padding:9px 12px;border-radius:999px}
+.tag b{font-weight:500;color:var(--rose);margin-right:6px}
+.big{font-family:var(--serif);font-weight:400;line-height:.84;white-space:nowrap}
+.bar{position:absolute;left:var(--pad);right:var(--pad);bottom:7vh;display:flex;justify-content:space-between;align-items:end;z-index:3}
+.bar p{font-size:var(--fs-l);line-height:1.45;max-width:20em}
+.dict2 .w{display:block;font:500 clamp(22px,2vw,34px)/1.2 var(--sans)}
+.dict2 .d{display:block;font:300 clamp(16px,1.4vw,24px)/1.3 var(--sans);color:var(--ink2)}
+.cake{position:absolute;left:50%;transform:translateX(-50%);z-index:2}
+.mast--light .mast__nav,.mast--light .mast__nav .accent{color:var(--paper)}
+.mast--light::after{background:rgba(255,249,246,.45)}
+.btn--light{background:var(--paper);color:var(--plum)}
+
+/* A – dagens idé, ryddet */
+.a{background:var(--blush)}
+.a .big{position:absolute;inset:13vh 0 auto;text-align:center;font-size:min(21vw,38vh);color:var(--rose);display:flex;flex-direction:column}
+.a .cake{bottom:-3vh;height:80vh}
+
+/* D – magasinforside */
+.d{background:var(--cream)}
+.d .big{position:absolute;top:96px;left:0;right:0;text-align:center;font-size:15.2vw;line-height:.9;color:var(--rose);letter-spacing:-.01em}
+.d .cake{bottom:-4vh;height:76vh}
+.d__lines{position:absolute;bottom:8vh;width:clamp(200px,18vw,300px);display:flex;flex-direction:column;gap:30px;z-index:3}
+.d__lines--l{left:var(--pad)}.d__lines--r{right:var(--pad);text-align:right}
+.d__lines b{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(24px,2.2vw,38px);line-height:1.05;margin-bottom:6px}
+.d__lines span{font-size:var(--fs-s);line-height:1.45;color:var(--ink2)}
+.d__no{position:absolute;top:calc(96px + 15.2vw * .9 + 10px);left:var(--pad);right:var(--pad);display:flex;justify-content:space-between;font:500 var(--fs-xs)/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--rg)}
+
+/* F – rosegull på krem: samme oppsett, men bokstavene får kontrast */
+.f{background:var(--paper)}
+.f .big{position:absolute;inset:13vh 0 auto;text-align:center;font-size:min(21vw,38vh);color:#D9A79B;display:flex;flex-direction:column}
+.f .cake{bottom:-3vh;height:72vh}
+
+/* G – ett ord: KAKE nederst, kaken står på ordet */
+.g{background:var(--blush)}
+.g .big{position:absolute;left:0;right:0;bottom:-5.5vw;text-align:center;font-size:33vw;color:var(--rose)}
+.g .cake{bottom:5vh;height:70vh}
+.g .dict2{position:absolute;left:var(--pad);top:130px;border-bottom:1px solid #F0B9C4;padding-bottom:12px;z-index:3}
+.g__side{position:absolute;right:var(--pad);top:130px;width:clamp(280px,24vw,400px);display:flex;flex-direction:column;align-items:flex-end;gap:22px;text-align:right;z-index:3}
+.g__side p{font-size:var(--fs-l);line-height:1.5}
+
+/* H – ord på foto: UNIK bak kaken i et ekte bilde */
+.h__photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 30%}
+.h .big{position:absolute;left:0;right:0;top:13vh;text-align:center;font-size:25vw;color:var(--paper);opacity:.92}
+.h__shade{position:absolute;inset:0;background:linear-gradient(to top,rgba(43,30,40,.38),rgba(43,30,40,0) 40%);pointer-events:none}
+.h .bar{color:var(--paper)}
+
+/* I – trapp: UNIK oppe til venstre, KAKE nede til høyre, tekst i de tomme hjørnene */
+.i{background:var(--paper)}
+.i .big{position:absolute;font-size:min(24vw,44vh);color:var(--rose)}
+.i__u{left:calc(var(--pad) - .6vw);top:92px}
+.i__k{right:calc(var(--pad) - .6vw);bottom:-4.5vh}
+.i .cake{bottom:-2vh;height:78vh;left:52%}
+.i__side{position:absolute;right:var(--pad);top:150px;width:clamp(260px,22vw,380px);display:flex;flex-direction:column;align-items:flex-end;gap:22px;text-align:right;z-index:3}
+.i__side p{font-size:var(--fs-l);line-height:1.5}
+.i .dict2{position:absolute;left:var(--pad);bottom:9vh;border-top:1px solid var(--line);padding-top:12px;z-index:3}
+
+/* J – kontur: bare omriss, lett som kierunek A */
+.j{background:var(--blush)}
+.j .big{position:absolute;inset:13vh 0 auto;text-align:center;font-size:min(21vw,38vh);color:transparent;-webkit-text-stroke:1.5px #E59AAC;display:flex;flex-direction:column}
+.j .cake{bottom:-3vh;height:76vh}
+</style>
+</head>
+<body class="loaded">
+
+<!-- A -->
+<section class="hv a">
+  <header class="mast"><a class="mast__logo"><img src="img/logo.svg" alt="Unikkake"></a>
+    <nav class="mast__nav"><a>Bryllup</a><a>Temakaker</a><a>Smaker</a><a>Priser</a><a>Om meg</a><a class="accent">Bestill kake →</a></nav></header>
+  <div class="big" aria-hidden="true"><span>UNIK</span><span>KAKE</span></div>
+  <img class="cake" src="img/hero-kake.png" alt="">
+  <div class="bar"><p>Håndlagde bryllupskaker og temakaker fra et lite kakeatelier på Karmøy.</p><a class="btn">Bestill kake <span>→</span></a></div>
+  <span class="tag"><b>A</b>Dagens idé, ryddet – hele kaken + én linje</span>
+</section>
+
+<!-- D -->
+<section class="hv d">
+  <header class="mast"><a class="mast__logo"><img src="img/logo.svg" alt="Unikkake"></a>
+    <nav class="mast__nav"><a>Bryllup</a><a>Temakaker</a><a>Smaker</a><a>Priser</a><a>Om meg</a><a class="accent">Bestill kake →</a></nav></header>
+  <div class="big" aria-hidden="true">UNIKKAKE</div>
+  <div class="d__no"><span>Kakeatelier · Karmøy</span><span>Bryllup og temakaker</span></div>
+  <img class="cake" src="img/hero-kake.png" alt="">
+  <div class="d__lines d__lines--l">
+    <p><b>Bryllup</b><span>Kaker for 25–90 gjester, smak i hver etasje uten tillegg</span></p>
+    <p><b>13 smaker</b><span>Fra sjokolade og sitrus til Aperol spritz</span></p>
+  </div>
+  <div class="d__lines d__lines--r">
+    <p><b>Fra 1 450 kr</b><span>Alle priser inkl. mva</span></p>
+    <p><b>Bestill</b><span>Send dato, antall og et bilde – <a class="accent">skjema →</a></span></p>
+  </div>
+  <span class="tag"><b>D</b>Magasinforside – forsidetitler som info</span>
+</section>
+
+<!-- F -->
+<section class="hv f">
+  <header class="mast"><a class="mast__logo"><img src="img/logo.svg" alt="Unikkake"></a>
+    <nav class="mast__nav"><a>Bryllup</a><a>Temakaker</a><a>Smaker</a><a>Priser</a><a>Om meg</a><a class="accent">Bestill kake →</a></nav></header>
+  <div class="big" aria-hidden="true"><span>UNIK</span><span>KAKE</span></div>
+  <img class="cake" src="img/hero-kake.png" alt="">
+  <div class="bar"><p>Håndlagde bryllupskaker og temakaker fra et lite kakeatelier på Karmøy.</p><a class="btn">Bestill kake <span>→</span></a></div>
+  <span class="tag"><b>F</b>Rosegull på krem – mer kontrast</span>
+</section>
+
+<!-- G -->
+<section class="hv g">
+  <header class="mast"><a class="mast__logo"><img src="img/logo.svg" alt="Unikkake"></a>
+    <nav class="mast__nav"><a>Bryllup</a><a>Temakaker</a><a>Smaker</a><a>Priser</a><a>Om meg</a><a class="accent">Bestill kake →</a></nav></header>
+  <p class="dict2"><span class="w">unik</span><span class="d">(adj.) som det bare finnes én av</span></p>
+  <div class="g__side"><p>Håndlagde bryllupskaker og temakaker fra Karmøy. Hver kake lages fra bunnen for akkurat din dag.</p><a class="btn">Bestill kake <span>→</span></a></div>
+  <div class="big" aria-hidden="true">KAKE</div>
+  <img class="cake" src="img/hero-kake.png" alt="">
+  <span class="tag" style="top:auto;bottom:16px"><b>G</b>Ett ord – KAKE nederst, kaken står på ordet</span>
+</section>
+
+<!-- H -->
+<section class="hv h">
+  <img class="h__photo" src="img/hero-v2.jpg" alt="">
+  <div class="big" aria-hidden="true">UNIK</div>
+  <img class="h__photo" src="img/hero-v2-kake.webp" alt="">
+  <div class="h__shade"></div>
+  <header class="mast mast--light"><a class="mast__logo"><img src="img/logo.svg" alt="Unikkake"></a>
+    <nav class="mast__nav"><a>Bryllup</a><a>Temakaker</a><a>Smaker</a><a>Priser</a><a>Om meg</a><a class="accent">Bestill kake →</a></nav></header>
+  <div class="bar"><p>Håndlagde bryllupskaker og temakaker fra et lite kakeatelier på Karmøy.</p><a class="btn btn--light">Bestill kake <span>→</span></a></div>
+  <span class="tag"><b>H</b>Ord på foto – UNIK bak kaken</span>
+</section>
+
+<!-- I -->
+<section class="hv i">
+  <header class="mast"><a class="mast__logo"><img src="img/logo.svg" alt="Unikkake"></a>
+    <nav class="mast__nav"><a>Bryllup</a><a>Temakaker</a><a>Smaker</a><a>Priser</a><a>Om meg</a><a class="accent">Bestill kake →</a></nav></header>
+  <div class="big i__u" aria-hidden="true">UNIK</div>
+  <div class="big i__k" aria-hidden="true">KAKE</div>
+  <img class="cake" src="img/hero-kake.png" alt="">
+  <div class="i__side"><p>Håndlagde bryllupskaker og temakaker fra Karmøy.</p><a class="btn">Bestill kake <span>→</span></a></div>
+  <p class="dict2"><span class="w">unik</span><span class="d">(adj.) som det bare finnes én av</span></p>
+  <span class="tag" style="top:auto;bottom:16px;right:auto;left:50%;transform:translateX(-50%)"><b>I</b>Trapp – ord i hjørnene, tekst i tomrommet</span>
+</section>
+
+<!-- J -->
+<section class="hv j">
+  <header class="mast"><a class="mast__logo"><img src="img/logo.svg" alt="Unikkake"></a>
+    <nav class="mast__nav"><a>Bryllup</a><a>Temakaker</a><a>Smaker</a><a>Priser</a><a>Om meg</a><a class="accent">Bestill kake →</a></nav></header>
+  <div class="big" aria-hidden="true"><span>UNIK</span><span>KAKE</span></div>
+  <img class="cake" src="img/hero-kake.png" alt="">
+  <div class="bar"><p>Håndlagde bryllupskaker og temakaker fra et lite kakeatelier på Karmøy.</p><a class="btn">Bestill kake <span>→</span></a></div>
+  <span class="tag"><b>J</b>Kontur – bare omriss, lett</span>
+</section>
+
+</body>
+</html>
