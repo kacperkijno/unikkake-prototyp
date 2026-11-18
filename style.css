@@ -369,3 +369,16 @@ a:hover{opacity:.6;transition:opacity .25s}
 .link__t{position:relative}
 .link__t::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .3s var(--ease-out)}
 .link:hover .link__t::after,.link:focus-visible .link__t::after{transform:scaleX(1);transform-origin:left}
+
+/* ---------- Smaker med lag (18.11, Michał: «som en meny på restaurant») ----------
+   10 smaker i to spalter (1–5, 6–10), navn + lagene under; spesialsmaker og merknader i to smale spalter under. */
+.flav{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:repeat(5,auto);grid-auto-flow:column;column-gap:clamp(24px,2.8vw,40px);row-gap:clamp(10px,1.1vw,16px);max-width:var(--measure);margin-bottom:clamp(20px,2.4vw,32px)}
+.flav li{margin:0;font-size:var(--fs-m);line-height:1.35}
+.flav li::before{top:.15em}
+.flav b{display:block;font-weight:400;color:var(--ink)}
+.flav span{display:block;margin-top:3px;font-size:var(--fs-s);line-height:1.45;color:var(--ink2)}
+.flav__more{display:grid;grid-template-columns:1fr 1fr;column-gap:clamp(24px,2.8vw,40px);max-width:var(--measure)}
+@media (max-width:900px){
+  .flav{grid-template-columns:1fr;grid-template-rows:none;grid-auto-flow:row;row-gap:14px}
+  .flav__more{grid-template-columns:1fr;row-gap:20px}
+}

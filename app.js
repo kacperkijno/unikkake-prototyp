@@ -22,7 +22,7 @@ const io = new IntersectionObserver(entries => {
     const ch = e.target.dataset.ch;
     if (ch) links.forEach(a => a.classList.toggle('is-active', a.dataset.ch === ch));
   }
-}, { threshold: 0.5 });
+}, { rootMargin: '-40% 0px -40% 0px' }); // seksjonen krysser midten av skjermen – virker også for seksjoner høyere enn 2× skjermhøyde (18.11)
 document.querySelectorAll('section.page, .hero').forEach(s => {
   s.querySelectorAll('[data-reveal]').forEach((el, i) => (el.style.transitionDelay = reduce ? '0ms' : i * 80 + 'ms'));
   io.observe(s);
