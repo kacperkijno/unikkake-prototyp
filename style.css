@@ -13,6 +13,7 @@
   --fs-h2:clamp(40px,34.4px + 1.5vw,76px);
   --measure:clamp(576px,40vw,760px);
   --serif:'orpheuspro',Georgia,serif; --sans:'Albert Sans',system-ui,sans-serif;
+  --label:'Afacad','Albert Sans',system-ui,sans-serif; /* meny og etiketter (18.11) */
 }
 /* over 1440 px vokser teksten raskere, så store skjermer ikke ser tomme ut */
 @media (min-width:1441px){:root{
@@ -72,7 +73,7 @@ a:hover{opacity:.6;transition:opacity .25s}
 @media (min-width:901px){
   .mast--light .logo--dark{display:none}.mast--light .logo--light{display:block}
   .mast--light .mast__nav,.mast--light .mast__nav .accent{color:var(--paper)}
-  .hero .mast--light::after{background:rgba(255,255,255,.7)}
+  .hero .mast--light::after{background:transparent;height:0;margin-top:0} /* linja i hero fjernet (18.11) */
 }
 .snap{height:100vh;scroll-snap-align:start}
 .snap--2{height:76vh;scroll-snap-align:end}
@@ -115,6 +116,9 @@ a:hover{opacity:.6;transition:opacity .25s}
 .book__photo img{width:100%;height:100%;object-fit:cover}
 .book__text{display:flex;flex-direction:column;padding:64px var(--pad) 64px var(--pad);min-height:100vh}
 .book__low{margin-top:auto;padding-top:32px}
+/* «Kapittel 0X» loddrett i øvre høyre hjørne av tekstsiden, leses ovenfra og ned (18.11) */
+.book__text{position:relative}
+.book__text>.eyebrow{position:absolute;top:64px;right:calc(var(--pad) - .5em);margin:0;writing-mode:vertical-rl}
 .book__low .lead{margin-bottom:38px}
 .book--flip .book__photo{order:2}
 .book--flip .book__text{order:1}
@@ -135,6 +139,10 @@ a:hover{opacity:.6;transition:opacity .25s}
 .tema{padding:64px var(--pad) 48px calc(var(--tabs) + var(--pad));display:flex;flex-direction:column}
 .tema__head{display:flex;justify-content:space-between;align-items:flex-start}
 .tema__head .lead{margin-top:28px}
+/* «Kapittel 02» loddrett i hjørnet som i bok-kapitlene; lenken flyttes til venstre for den */
+.tema{position:relative}
+.tema__head{padding-right:44px}
+.tema__head .eyebrow{position:absolute;top:64px;right:calc(var(--pad) - .5em);margin:0;writing-mode:vertical-rl}
 .tema__cols{margin-top:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;align-items:start}
 .tema__cols figure{margin-top:var(--mt)}
 .tema__cols img{width:100%;height:var(--h);object-fit:cover}
@@ -153,6 +161,9 @@ a:hover{opacity:.6;transition:opacity .25s}
 .file__ui{display:flex;align-items:center;height:clamp(40px,2.2vw + 8px,48px);padding:0 12px;border:1px dashed #D9BFB8;background:rgba(255,255,255,.6);font:300 var(--fs-s) var(--sans);letter-spacing:0;text-transform:none;color:var(--ink2);cursor:pointer}
 .file:focus-within .file__ui{border-color:var(--plum)}
 .form .btn{align-self:flex-start;margin-top:8px}
+/* smal spalte i Bestilling: tekst øverst, knappen nederst på linje med siste felt (18.11) */
+.cols__side{align-self:stretch;display:flex;flex-direction:column;justify-content:space-between;gap:24px}
+.cols__send .btn{width:100%;justify-content:center;padding-inline:1em;white-space:nowrap}
 .form__ok{font-size:var(--fs-m);color:var(--plum)}
 
 /* lave skjermer: kompakt skjema */
@@ -226,6 +237,8 @@ a:hover{opacity:.6;transition:opacity .25s}
   .book__low{margin-top:28px;padding-top:0}
   .book__low .lead{margin-bottom:28px}
   .cols{grid-template-columns:1fr;gap:28px}
+  .cols__side{flex-direction:column-reverse} /* mobil: knappen rett under skjemaet, «Godt å vite» under */
+  .cols__send .btn{width:auto}
   .narrow{border-top:1px solid var(--line);padding-top:18px}
   .price li{grid-template-columns:1.6em 4.6em 1fr auto}
   /* magasin: bilde øverst, panel under */
@@ -315,5 +328,44 @@ a:hover{opacity:.6;transition:opacity .25s}
   .mag--open .mag__word{top:11vh;font-size:24vw;left:16px} /* mobil: over kaken, toppen ville delt ordet */
   .mag--open .mag__cut{position:absolute;top:0;left:0;width:100%}
   .book__word{font-size:25vw;top:9vh}
+  .book__text>.eyebrow,.tema__head .eyebrow{top:40px;right:12px}
+  .tema__head{padding-right:28px}
   .mag__cap{display:none} /* på mobil sier neste side «Kapittel 01» */
 }
+
+/* ---------- Afacad i meny og etiketter (18.11, Kacper: Albert Sans for oklepany) ----------
+   Afacad har mindre x-høyde enn Albert, derfor ca. 10–12 % større. Brødtekst, knapper og skjemafelt forblir Albert Sans. */
+.eyebrow,.tema__cols figcaption,.form label,.foot__name,.quote cite,.mag__cap span{font-family:var(--label);font-size:calc(var(--fs-xs) * 1.12)}
+.tabs a{font-family:var(--label);font-size:11.5px}
+.foot__right nav{font-family:var(--label);font-weight:500;font-size:calc(var(--fs-xs) * 1.12);letter-spacing:.18em;text-transform:uppercase}
+@media (min-width:901px){
+  /* øvre meny som kapittelfanene: små versaler med sperring (18.11) */
+  .mast__nav{font-family:var(--label);font-weight:500;font-size:calc(var(--fs-xs) * 1.12);letter-spacing:.18em;text-transform:uppercase}
+}
+@media (max-width:900px){
+  .mast__nav .accent{font-family:var(--label);font-size:19px}
+}
+
+/* ---------- Knapper (18.11, Figma «Przyciski»: C = hovedknapp, E = lenke) ----------
+   C «Śliwka ostra»: hel plomme, rette hjørner, Afacad versaler – samme språk som kapittelfanene.
+   E «Linia ze strzałką»: tekst + lang hårstrek-pil, til sekundære lenker («Bestill temakake»). */
+.btn{border-radius:0;gap:14px;padding:1.35em 2.2em;font:500 calc(var(--fs-xs) * 1.12)/1 var(--label);letter-spacing:.18em;text-transform:uppercase;transition:background .25s}
+/* hover (18.11): strzałka stoi, na dole przelatuje fioletowa linia jak podkreślenie w menu */
+.btn{position:relative;overflow:hidden}
+.btn:hover{background:var(--plum)}
+.btn::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:#B98CD0;transform:scaleX(0);transform-origin:right;transition:transform .35s var(--ease-out)}
+.btn:hover::after,.btn:focus-visible::after{transform:scaleX(1);transform-origin:left}
+.btn:hover span,.btn:hover .arr--s{transform:none;width:14px}
+.hero .btn{background:var(--paper);color:var(--plum)} /* hero: odwrócone kolory na zdjęciu (18.11) */
+.hero .btn:hover{background:var(--blush)}
+.hero .btn::after{background:var(--plum)}
+.arr{position:relative;display:inline-block;width:56px;height:1px;background:currentColor;transition:width .35s var(--ease-out)}
+.arr::after{content:"";position:absolute;right:0;top:-3.5px;width:7px;height:7px;border-top:1px solid currentColor;border-right:1px solid currentColor;transform:rotate(45deg);transform-origin:center}
+.arr--s{width:14px}
+.link{display:inline-flex;align-items:center;gap:18px;font:500 calc(var(--fs-xs) * 1.12)/1 var(--label);letter-spacing:.18em;text-transform:uppercase;color:var(--plum)}
+.narrow .link{font-size:calc(var(--fs-xs) * 1.12)}
+.link::after{display:none}
+/* hover: podkreślenie pod tekstem rysuje się jak w menu, strzałka stoi (18.11) */
+.link__t{position:relative}
+.link__t::after{content:"";position:absolute;left:0;right:0;bottom:-5px;height:1px;background:currentColor;transform:scaleX(0);transform-origin:right;transition:transform .3s var(--ease-out)}
+.link:hover .link__t::after,.link:focus-visible .link__t::after{transform:scaleX(1);transform-origin:left}

@@ -15,7 +15,7 @@
 <link rel="icon" href="img/logo.svg" type="image/svg+xml">
 <link rel="stylesheet" href="https://use.typekit.net/xsd8rrt.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Albert+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Afacad:wght@400;500&family=Albert+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -23,12 +23,12 @@
 
 <!-- Kapittelfaner: skjult over hero, festet til venstre resten av siden -->
 <nav class="tabs" aria-label="Kapitler">
-  <a href="#bryllup" data-ch="bryllup">01&nbsp;&nbsp;Bryllup</a>
-  <a href="#temakaker" data-ch="temakaker">02&nbsp;&nbsp;Temakaker</a>
-  <a href="#smaker" data-ch="smaker">03&nbsp;&nbsp;Smaker</a>
-  <a href="#priser" data-ch="priser">04&nbsp;&nbsp;Priser</a>
-  <a href="#om-meg" data-ch="om-meg">05&nbsp;&nbsp;Om meg</a>
-  <a href="#bestilling" data-ch="bestilling">06&nbsp;&nbsp;Bestilling</a>
+  <a href="#bryllup" data-ch="bryllup">Bryllup</a>
+  <a href="#temakaker" data-ch="temakaker">Temakaker</a>
+  <a href="#smaker" data-ch="smaker">Smaker</a>
+  <a href="#priser" data-ch="priser">Priser</a>
+  <a href="#om-meg" data-ch="om-meg">Om meg</a>
+  <a href="#bestilling" data-ch="bestilling">Bestilling</a>
 </nav>
 
 <main>
@@ -49,7 +49,7 @@
   </header>
   <div class="hero__text">
     <p class="hero__p" data-reveal>Håndlagde bryllupskaker og temakaker fra et lite kakeatelier på Karmøy.</p>
-    <a class="btn btn--light" href="#bestilling" data-reveal>Bestill kake <span>→</span></a>
+    <a class="btn" href="#bestilling" data-reveal>Bestill kake <span class="arr arr--s" aria-hidden="true"></span></a>
   </div>
 </section>
 
@@ -82,7 +82,7 @@
       <h2 class="h2">Temakaker</h2>
       <p class="lead">Kaker til barn, voksne og dåp. Hver kake får sin egen historie. Inspirasjon er velkommen, men jeg lager alltid min egen versjon.</p>
     </div>
-    <a class="link" href="#bestilling">Bestill temakake →</a>
+    <a class="link" href="#bestilling"><span class="link__t">Bestill temakake</span> <span class="arr" aria-hidden="true"></span></a>
   </div>
   <div class="tema__cols">
     <figure data-reveal style="--h:52vh;--mt:4vh"><div class="tema__img"><img src="img/barn-ballong.jpg" alt="Ballongkake"></div><figcaption>Barn</figcaption></figure>
@@ -146,7 +146,7 @@
       <blockquote class="quote" data-reveal><p>«[Ett sitat fra Joanna, f.eks. hva unik betyr for henne.]»</p><cite>Joanna</cite></blockquote>
       <div class="cols">
         <p class="small" data-reveal>[Tekst fra Joanna: hvem hun er, hvor lenge hun har bakt, og hvorfor hver kake lages fra bunnen. 3–5 setninger.]</p>
-        <p class="narrow" data-reveal>Atelier:<br>Karmøy<br><br>Leverer til:<br>Haugesund og Karmøy<br><br>Bestilling:<br>via skjemaet<br><br><a class="link" href="#bestilling">Bestill kake →</a></p>
+        <p class="narrow" data-reveal>Atelier:<br>Karmøy<br><br>Leverer til:<br>Haugesund og Karmøy<br><br>Bestilling:<br>via skjemaet<br><br><a class="link" href="#bestilling"><span class="link__t">Bestill kake</span> <span class="arr" aria-hidden="true"></span></a></p>
       </div>
     </div>
   </div>
@@ -161,7 +161,7 @@
     <div class="book__low">
       <p class="lead" data-reveal>Fortell om dato, antall personer og tema. Legg gjerne ved et inspirasjonsbilde. Datoen er din når depositumet er betalt.</p>
       <div class="cols">
-        <form class="form" data-reveal>
+        <form class="form" id="bestill-form" data-reveal>
           <label>Navn<input name="navn" autocomplete="name" placeholder="Fornavn og etternavn" required></label>
           <div class="form__row">
             <label>E-post<input name="epost" type="email" autocomplete="email" placeholder="navn@epost.no" required></label>
@@ -176,10 +176,15 @@
           </select></label>
           <label>Fortell om kaken<textarea name="melding" rows="3" placeholder="Tema, farger, smak, ønsker"></textarea></label>
           <label class="file">Inspirasjonsbilde<input name="bilde" type="file" accept="image/*"><span class="file__ui">Velg bilde</span></label>
-          <button class="btn" type="submit">Send forespørsel <span>→</span></button>
-          <p class="form__ok" role="status" hidden>Takk! Joanna svarer deg så snart hun kan.</p>
         </form>
-        <p class="narrow" data-reveal>Godt å vite:<br>datoen er reservert når depositumet er betalt<br>inspirasjon, ikke kopi 1:1<br>laktosefri og nøttefri etter avtale<br>ikke glutenfri</p>
+        <!-- 18.11: knappen står nederst i den smale spalten, koblet til skjemaet med form="bestill-form" -->
+        <div class="cols__side" data-reveal>
+          <p class="narrow">Godt å vite:<br>datoen er reservert når depositumet er betalt<br>inspirasjon, ikke kopi 1:1<br>laktosefri og nøttefri etter avtale<br>ikke glutenfri</p>
+          <div class="cols__send">
+            <button class="btn" type="submit" form="bestill-form">Send forespørsel <span class="arr arr--s" aria-hidden="true"></span></button>
+            <p class="form__ok" role="status" hidden>Takk! Joanna svarer deg så snart hun kan.</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>

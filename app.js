@@ -51,8 +51,9 @@ form.querySelector('input[type=file]').addEventListener('change', e => {
 });
 form.addEventListener('submit', e => {
   e.preventDefault();
-  form.querySelector('.btn').hidden = true;
-  form.querySelector('.form__ok').hidden = false;
+  // knappen og takk-teksten står i den smale spalten (utenfor <form>)
+  document.querySelector('[form="bestill-form"]').hidden = true;
+  document.querySelector('.cols__send .form__ok').hidden = false;
 });
 
 // Parallakse: bokstavene henger etter, kaken kommer frem (+120 px over 900 px)

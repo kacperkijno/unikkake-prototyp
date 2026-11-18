@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="nb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Fonty – menu i etykiety</title>
+<link rel="stylesheet" href="https://use.typekit.net/xsd8rrt.css">
+<link href="https://fonts.googleapis.com/css2?family=Afacad:wght@400;500&family=Albert+Sans:wght@300;400;500&family=DM+Mono:wght@400&family=Instrument+Sans:wght@400;500&family=Josefin+Sans:wght@300;400&family=Jost:wght@300;400&family=Marcellus+SC&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+/* Porównanie krojów dla menu + etykiet «Kapittel» (18.11, wewnętrzne). Tytuł = Orpheus, tekst = Albert Sans jak na stronie. */
+body{background:var(--cream);padding:40px var(--pad) 80px}
+h1{font:400 32px/1.1 var(--serif);margin-bottom:6px}
+.intro{font-size:15px;color:var(--ink2);margin-bottom:36px;max-width:60em}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px}
+.card{position:relative;background:var(--blush);padding:24px 28px 30px;min-height:330px}
+.card:nth-child(4n+2),.card:nth-child(4n+3){background:var(--paper);outline:1px solid var(--line)}
+.name{position:absolute;left:28px;bottom:-22px;font:500 12px/1 var(--sans);letter-spacing:.06em;color:var(--ink2)}
+.name b{color:var(--plum);font-weight:500}
+.nav{display:flex;justify-content:flex-end;gap:26px;padding-bottom:14px;border-bottom:1px solid #F0B9C4;font-family:var(--f);font-weight:var(--w,400);font-size:calc(var(--fs-m) * var(--k,1));letter-spacing:var(--ls,0)}
+.nav .accent{color:var(--plum)}
+.body{position:relative;padding:34px 44px 0 0}
+.eb{position:absolute;top:34px;right:0;writing-mode:vertical-rl;font-family:var(--f);font-weight:var(--we,500);font-size:calc(var(--fs-xs) * var(--k,1));letter-spacing:.16em;text-transform:uppercase;color:var(--rg)}
+.body .h2{font-size:56px}
+.body .lead{margin-top:18px;font-size:16px;max-width:30em}
+.lab{margin-top:22px;font-family:var(--f);font-weight:var(--we,500);font-size:calc(var(--fs-xs) * var(--k,1));letter-spacing:.16em;text-transform:uppercase;color:var(--rg)}
+</style>
+</head>
+<body class="loaded">
+<h1>Menu i etykiety – 10 krojów</h1>
+<p class="intro">Tytuł zawsze Orpheus, tekst zawsze Albert Sans (jak na stronie). Zmienia się tylko menu, pionowy «Kapittel» i mała etykieta pod tekstem (jak «Barn» w Temakaker). Kroje z kitu Adobe mają w kicie tylko jedną grubość.</p>
+<div class="grid">
+  <!-- $f, $w (menu), $we (etykieta), $k (skala, bo kroje mają różną wielkość oczka) -->
+  <div class="card" style="--f:'Afacad';--w:400;--we:500;--k:1.12"><div class="nav"><a>Bryllup</a><a>Temakaker</a><a>Smaker</a><a>Priser</a><a>Om meg</a><a class="accent">Bestill kake →</a></div><div class="body"><span class="eb">Kapittel 03</span><h2 class="h2">Smaker</h2><p class="lead">Alle kakebunner deles i tre lag. Velg gjerne forskjellig smak i hver etasje.</p><p class="lab">Barn · Voksne · Dåp og navnefest</p></div><span class="name"><b>01 Afacad</b> · Google · Twoja propozycja</span></div>
+  <div class="card" style="--f:'futura-pt';--w:400;--we:400"><div class="nav"><a>Bryllup</a><a>Temakaker</a><a>Smaker</a><a>Priser</a><a>Om meg</a><a class="accent">Bestill kake →</a></div><div class="body"><span class="eb">Kapittel 03</span><h2 class="h2">Smaker</h2><p class="lead">Alle kakebunner deles i tre lag. Velg gjerne forskjellig smak i hver etasje.</p><p class="lab">Barn · Voksne · Dåp og navnefest</p></div><span class="name"><b>02 Futura PT</b> · Adobe (w kicie) · klasyk, geometryczny</span></div>
+  <div class="card" style="--f:'Jost';--w:400;--we:400"><div class="nav"><a>Bryllup</a><a>Temakaker</a><a>Smaker</a><a>Priser</a><a>Om meg</a><a class="accent">Bestill kake →</a></div><div class="body"><span class="eb">Kapittel 03</span><h2 class="h2">Smaker</h2><p class="lead">Alle kakebunner deles i tre lag. Velg gjerne forskjellig smak i hver etasje.</p><p class="lab">Barn · Voksne · Dåp og navnefest</p></div><span class="name"><b>03 Jost</b> · Google · darmowy odpowiednik Futury</span></div>
+  <div class="card" style="--f:'Josefin Sans';--w:400;--we:400;--k:1.05"><div class="nav"><a>Bryllup</a><a>Temakaker</a><a>Smaker</a><a>Priser</a><a>Om meg</a><a class="accent">Bestill kake →</a></div><div class="body"><span class="eb">Kapittel 03</span><h2 class="h2">Smaker</h2><p class="lead">Alle kakebunner deles i tre lag. Velg gjerne forskjellig smak i hver etasje.</p><p class="lab">Barn · Voksne · Dåp og navnefest</p></div><span class="name"><b>04 Josefin Sans</b> · Google · vintage, lekkie wersaliki</span></div>
+  <div class="card" style="--f:'Marcellus SC';--w:400;--we:400;--ls:.04em"><div class="nav"><a>Bryllup</a><a>Temakaker</a><a>Smaker</a><a>Priser</a><a>Om meg</a><a class="accent">Bestill kake →</a></div><div class="body"><span class="eb">Kapittel 03</span><h2 class="h2">Smaker</h2><p class="lead">Alle kakebunner deles i tre lag. Velg gjerne forskjellig smak i hver etasje.</p><p class="lab">Barn · Voksne · Dåp og navnefest</p></div><span class="name"><b>05 Marcellus SC</b> · Google · szeryfowe kapitaliki, «grawerowane»</span></div>
+  <div class="card" style="--f:'DM Mono';--w:400;--we:400;--k:.92"><div class="nav"><a>Bryllup</a><a>Temakaker</a><a>Smaker</a><a>Priser</a><a>Om meg</a><a class="accent">Bestill kake →</a></div><div class="body"><span class="eb">Kapittel 03</span><h2 class="h2">Smaker</h2><p class="lead">Alle kakebunner deles i tre lag. Velg gjerne forskjellig smak i hver etasje.</p><p class="lab">Barn · Voksne · Dåp og navnefest</p></div><span class="name"><b>06 DM Mono</b> · Google · maszynopis, jak przepis w zeszycie</span></div>
+  <div class="card" style="--f:'freight-sans-pro';--w:300;--we:300;--k:1.08"><div class="nav"><a>Bryllup</a><a>Temakaker</a><a>Smaker</a><a>Priser</a><a>Om meg</a><a class="accent">Bestill kake →</a></div><div class="body"><span class="eb">Kapittel 03</span><h2 class="h2">Smaker</h2><p class="lead">Alle kakebunner deles i tre lag. Velg gjerne forskjellig smak i hver etasje.</p><p class="lab">Barn · Voksne · Dåp og navnefest</p></div><span class="name"><b>07 Freight Sans</b> · Adobe (w kicie) · humanistyczny, ciepły</span></div>
+  <div class="card" style="--f:'neue-haas-unica';--w:300;--we:300"><div class="nav"><a>Bryllup</a><a>Temakaker</a><a>Smaker</a><a>Priser</a><a>Om meg</a><a class="accent">Bestill kake →</a></div><div class="body"><span class="eb">Kapittel 03</span><h2 class="h2">Smaker</h2><p class="lead">Alle kakebunner deles i tre lag. Velg gjerne forskjellig smak i hver etasje.</p><p class="lab">Barn · Voksne · Dåp og navnefest</p></div><span class="name"><b>08 Neue Haas Unica</b> · Adobe (w kicie) · szwajcarski, chłodny</span></div>
+  <div class="card" style="--f:'Instrument Sans';--w:400;--we:500"><div class="nav"><a>Bryllup</a><a>Temakaker</a><a>Smaker</a><a>Priser</a><a>Om meg</a><a class="accent">Bestill kake →</a></div><div class="body"><span class="eb">Kapittel 03</span><h2 class="h2">Smaker</h2><p class="lead">Alle kakebunner deles i tre lag. Velg gjerne forskjellig smak i hver etasje.</p><p class="lab">Barn · Voksne · Dåp og navnefest</p></div><span class="name"><b>09 Instrument Sans</b> · Google · wąski, redakcyjny</span></div>
+  <div class="card" style="--f:'Albert Sans';--w:400;--we:500"><div class="nav"><a>Bryllup</a><a>Temakaker</a><a>Smaker</a><a>Priser</a><a>Om meg</a><a class="accent">Bestill kake →</a></div><div class="body"><span class="eb">Kapittel 03</span><h2 class="h2">Smaker</h2><p class="lead">Alle kakebunner deles i tre lag. Velg gjerne forskjellig smak i hver etasje.</p><p class="lab">Barn · Voksne · Dåp og navnefest</p></div><span class="name"><b>10 Albert Sans</b> · obecny, dla porównania</span></div>
+</div>
+</body>
+</html>
